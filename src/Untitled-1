@@ -1,0 +1,20 @@
+- Em cada keypress: Faz o count do textarea, atualiza o contador;
+    - If maior que 140, disable do botao, else enable
+
+
+$('textarea').on('keypress', function pegandoOTexto(e) {
+    console.log($(event.target).val())
+    if() {
+        $('ELEMENTOCONTADOR').text('$(event.target).val()')     
+    } else {
+
+    }
+
+})
+
+
+# Desafio
+
+Fazer o contador de tweets ficar vermelho com a class:
+novoTweet__status--invalido
+## Página 14 apostila
