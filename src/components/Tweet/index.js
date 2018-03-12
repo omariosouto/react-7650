@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import Helmet from 'react-helmet'
 import './tweet.css'
 
 class Tweet extends Component {
     render() {
         return (
             <article className="tweet">
+                <Helmet title="Home - Twitelum" />
                 <div className="tweet__cabecalho">
-                    <img className="tweet__fotoUsuario" src="https://placehold.it/50x50" alt="" />
-                    <span className="tweet__nomeUsuario">Fulano de Tal</span>
-                    <a href=""><span className="tweet__userName">@usuario</span></a>
+                    <img className="tweet__fotoUsuario" src={this.props.tweetInfo.usuario.foto} alt="" />
+                    <span className="tweet__nomeUsuario">{this.props.tweetInfo.usuario.nome}</span>
+                    <Link to={`/perfil/${this.props.tweetInfo.usuario.login}` }>
+                        <span className="tweet__userName">@{ this.props.tweetInfo.usuario.login }</span>
+                    </Link>
                 </div>
-                <p className="tweet__conteudo"><span>Lorem, ipsum dolor sit <a href="/trends/#amet" data-reactroot="">#amet</a> consectetur adipisicing <a href="/trends/#elit" data-reactroot="">#elit</a>. Adipisci ut cumque tempora? Quam velit vitae voluptatum tempora iste, mollitia, sa</span></p>
+                <p className="tweet__conteudo">
+                    { this.props.conteudo }
+                </p>
                 <footer className="tweet__footer">
                     <button className="btn btn--clean">
                         <svg className="icon icon--small iconHeart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.5 47.5">
